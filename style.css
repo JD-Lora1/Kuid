@@ -1,0 +1,521 @@
+/* Optional: Add Google Font (Place in <head> of HTML or use @import) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Lilac/Purple Color Palette for Tranquility and Trust */
+:root {
+    --primary-color: #8A63D2; /* Wisteria Purple (Calm, Trustworthy) */
+    --primary-hover: #704AB5; /* Darker Wisteria for hover */
+    --secondary-color: #8D8D8D; /* Medium Gray (Neutral) */
+    --accent-color: #C8A2C8;  /* Lilac (Soft Accent) */
+    --accent-hover: #B089B0; /* Darker Lilac for hover */
+    --light-color: #ffffff;  /* White */
+    --very-light-alt-bg: #F5F3F9; /* Very Light Lilac Tint for section backgrounds */
+    --dark-color: #4A4A4A;    /* Dark Gray/Charcoal (Softer than black) */
+    --card-background: #ffffff;
+    --text-color: #4A4A4A;    /* Default text color */
+    --text-light: #ffffff; /* Text on dark/colored backgrounds */
+    --warning-color: #E06C75; /* Softer Red for alerts */
+    --info-color: #77BFC7;    /* Muted Teal for info/savings icons */
+    --active-border-color: var(--primary-color);
+    --active-bg-color: #EAE0F1; /* Very light purple for active coverage */
+
+    --brand-font: 'Poppins', sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 5px 15px rgba(138, 99, 210, 0.1); /* Subtle purple shadow */
+    --transition-speed: 0.3s ease;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Typography */
+body {
+    font-family: var(--brand-font), 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-color); /* Use white as main background */
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    padding-top: 40px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    width: 90%;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+header h1 {
+    font-weight: 600;
+}
+
+header h1 i {
+    margin-right: 10px;
+}
+
+header a { /* Style for back links in header */
+     color: var(--text-light);
+     text-decoration: none;
+     transition: opacity var(--transition-speed);
+}
+header a:hover {
+    opacity: 0.8;
+}
+
+
+/* Section Styles */
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Alternating Backgrounds */
+section:nth-child(even) {
+    background-color: var(--light-color); /* White */
+}
+section:nth-child(odd) {
+    background-color: var(--very-light-alt-bg); /* Very Light Lilac Tint */
+}
+
+section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+section p {
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+.section-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color); /* Use primary color for main section icons */
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Onboarding Specific */
+#onboarding p {
+    font-size: 1.1rem;
+    color: var(--dark-color); /* Slightly darker text for emphasis */
+}
+
+/* Plan Customization Styles */
+.coverage-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased gap */
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.coverage-item {
+    background-color: var(--card-background);
+    padding: 30px; /* Increased padding */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 220px; /* Slightly larger width */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: 2px solid transparent;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column;
+    justify-content: space-between; /* Space out content and button */
+}
+
+.coverage-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(138, 99, 210, 0.15); /* Enhanced shadow on hover */
+}
+
+.coverage-item i {
+    font-size: 2.8rem; /* Slightly larger icons */
+    margin-bottom: 18px;
+}
+
+.coverage-item h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+.coverage-item p {
+   font-size: 0.9rem;
+   color: var(--secondary-color);
+   margin-bottom: 20px; /* Increased margin */
+   flex-grow: 1; /* Allow text to take space */
+}
+
+
+.coverage-item .toggle-button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 18px; /* Larger button */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    width: 100%;
+    font-weight: 600;
+    margin-top: auto; /* Push button to bottom */
+}
+
+.coverage-item .toggle-button:hover {
+    background-color: var(--primary-hover); /* Use defined hover color */
+}
+
+.coverage-item.active {
+    border: 2px solid var(--active-border-color);
+    background-color: var(--active-bg-color);
+}
+
+.coverage-item.active .toggle-button {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+.coverage-item.active .toggle-button:hover {
+    background-color: #5A6268; /* Slightly darker gray on hover */
+}
+
+/* Icon Specific Colors (Using Palette) */
+.icon-health { color: var(--primary-color); } /* Purple */
+.icon-income { color: var(--info-color); }    /* Muted Teal */
+.icon-children { color: var(--accent-color); } /* Lilac */
+.icon-pets { color: #A07855; } /* Soft Brown for pets */
+
+
+/* Dashboard Styles */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger min-width */
+    gap: 30px;
+    margin-top: 35px;
+    text-align: left;
+}
+
+.dashboard-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.dashboard-card:hover {
+    transform: translateY(-4px);
+     box-shadow: 0 10px 20px rgba(138, 99, 210, 0.12); /* Consistent hover shadow */
+}
+
+.dashboard-card i:not(.fa-whatsapp):not(.fa-apple):not(.fa-google) { /* Target general icons, exclude brand */
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+    align-self: flex-start;
+    /* Assign palette colors */
+}
+
+.dashboard-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--dark-color);
+}
+
+.dashboard-card p {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin-bottom: auto;
+    padding-bottom: 15px;
+    margin-left: 0;
+    margin-right: 0;
+    line-height: 1.5;
+}
+
+/* Dashboard Specific Icon Colors */
+.icon-idea { color: #FFC107; } /* Keep yellow for idea/lightbulb */
+.icon-alert { color: var(--warning-color); } /* Use softer warning red */
+.icon-reward { color: var(--primary-color); } /* Purple */
+.icon-savings { color: var(--info-color); }    /* Muted Teal */
+.icon-group { color: var(--primary-color); } /* Purple */
+
+/* Generic Button / Link Button Style within Dashboard/Support */
+.dashboard-card .btn-link, .support-item .btn-link {
+    display: inline-block;
+    background-color: var(--accent-color); /* Lilac default */
+    color: var(--dark-color); /* Dark text on light Lilac */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    border: none;
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 600;
+    margin-top: 15px; /* Adjusted margin */
+    align-self: flex-start; /* Align left */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dashboard-card .btn-link:hover, .support-item .btn-link:hover {
+    background-color: var(--accent-hover); /* Use defined hover */
+    color: var(--text-light); /* White text on darker lilac */
+}
+
+/* Specific button overrides */
+#integrations .btn-link, #wearables-content button, #app-content button {
+    background-color: var(--primary-color); /* Purple for integrations */
+    color: var(--text-light);
+}
+#integrations .btn-link:hover, #wearables-content button:hover, #app-content button:hover {
+    background-color: var(--primary-hover);
+}
+
+/* WhatsApp Button */
+#support-transparency .btn-link[href*="whatsapp"] {
+     background-color: #25D366;
+     color: white;
+}
+#support-transparency .btn-link[href*="whatsapp"]:hover {
+     background-color: #1DAE54;
+}
+
+/* Make sure icons inside buttons look right */
+.btn-link i {
+    font-size: 1em;
+    margin: 0;
+}
+
+
+/* Support and Transparency Styles */
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+    gap: 30px;
+    margin-top: 35px;
+    text-align: left;
+}
+
+.support-item {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.support-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(138, 99, 210, 0.12);
+}
+
+.support-item i {
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+}
+
+.support-item h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.support-item p {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* Support Icons */
+.icon-support { color: var(--primary-color); } /* Purple */
+.icon-transparent { color: var(--secondary-color); } /* Grey */
+.icon-stories { color: var(--accent-color); }  /* Lilac */
+
+/* Cost Tracker Styles */
+#cost-tracker {
+    background-color: var(--card-background);
+    padding: 25px;
+    margin: 40px auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 650px;
+    text-align: center;
+    border: 1px solid var(--very-light-alt-bg); /* Subtle border */
+}
+
+#cost-tracker h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#cost-tracker p#current-cost {
+    font-size: 1.4rem; /* Larger cost display */
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+#cost-bar-outer {
+    background-color: var(--very-light-alt-bg); /* Light lilac background */
+    border-radius: 10px;
+    height: 22px; /* Slightly taller */
+    overflow: hidden;
+    width: 100%;
+}
+
+#cost-bar-inner {
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%); /* Gradient bar */
+    height: 100%;
+    width: 0%;
+    border-radius: 10px 0 0 10px;
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+    text-align: right;
+    color: white;
+    font-size: 0.8rem;
+    line-height: 22px;
+    padding-right: 8px;
+    font-weight: 600;
+}
+
+/* Form Styles (e.g., in group-benefits.html) */
+.form-group { margin-bottom: 18px; text-align: left; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; color: var(--dark-color); }
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+}
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(138, 99, 210, 0.2); /* Focus ring */
+}
+
+/* Real Stories Specific Styles */
+.story-card {
+    background-color: var(--card-background);
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: left;
+}
+.story-card h3 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.2rem; font-weight: 600;}
+.story-card blockquote {
+    margin: 15px 0;
+    padding-left: 20px;
+    border-left: 4px solid var(--accent-color); /* Lilac border */
+    font-style: italic;
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+.story-card strong {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+ .story-card .coverage-tag {
+    display: inline-block;
+    background-color: var(--very-light-alt-bg); /* Light lilac tag bg */
+    color: var(--primary-color); /* Purple text */
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-top: 10px;
+    font-weight: 500;
+ }
+
+
+/* Footer Styles */
+footer {
+    background-color: var(--dark-color);
+    color: #ccc; /* Lighter gray for footer text */
+    text-align: center;
+    padding: 1.5rem 0; /* Increased padding */
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        width: 95%; /* Slightly more width on mobile */
+    }
+
+    .coverage-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .coverage-item {
+        width: 90%;
+        max-width: 350px; /* Allow slightly larger cards */
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 20px;
+    }
+
+     .dashboard-card {
+        padding: 25px;
+     }
+
+    .support-grid {
+         grid-template-columns: 1fr;
+         gap: 20px;
+    }
+     .support-item {
+         padding: 25px;
+     }
+
+    #cost-tracker {
+        max-width: 90%;
+    }
+}
