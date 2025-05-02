@@ -523,3 +523,225 @@ footer {
         max-width: 90%;
     }
 }
+
+/* === Authentication Page Styles === */
+
+/* Apply specific background and centering for auth pages */
+body.auth-body {
+    background-color: var(--very-light-alt-bg, #F9F6FC); /* Use light purple tint or fallback */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it takes full height */
+    padding: 20px; /* Add padding for smaller screens */
+}
+
+.auth-container {
+    background-color: var(--light-color, #fff);
+    padding: 40px 50px;
+    border-radius: var(--border-radius, 8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+}
+
+.auth-logo {
+    font-size: 3rem; /* Adjust size as needed */
+    font-weight: 700;
+    color: var(--dark-color, #4F4F4F);
+    margin-bottom: 20px;
+}
+
+.auth-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark-color, #4F4F4F);
+    margin-bottom: 30px;
+}
+
+/* Google Button */
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-color, #4F4F4F);
+    background-color: var(--light-color, #fff);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed, 0.3s ease);
+    margin-bottom: 20px;
+}
+
+.google-btn i.fa-google {
+    color: #DB4437; /* Google Red */
+    font-size: 1.2em;
+}
+
+.google-btn:hover {
+    background-color: #f8f8f8;
+}
+
+/* Divider */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-color, #828282);
+    margin: 25px 0;
+    font-size: 0.9rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.auth-divider span {
+    padding: 0 15px;
+}
+
+
+/* Form elements within auth container */
+.auth-container .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-container .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dark-color, #4F4F4F);
+}
+
+.auth-container .form-group input[type="email"],
+.auth-container .form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f7f7f7; /* Light gray background */
+    color: var(--text-color);
+    transition: border-color var(--transition-speed, 0.3s ease), box-shadow var(--transition-speed, 0.3s ease);
+}
+
+.auth-container .form-group input[type="email"]::placeholder,
+.auth-container .form-group input[type="password"]::placeholder {
+    color: #aaa; /* Lighter placeholder text */
+}
+
+
+.auth-container .form-group input[type="email"]:focus,
+.auth-container .form-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color, #9B59B6);
+    background-color: var(--light-color, #fff);
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.15); /* Use primary color alpha */
+}
+
+/* Remember Me & Forgot Password */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember-me label {
+    margin-bottom: 0; /* Override form-group margin */
+    font-weight: 400;
+    color: var(--secondary-color, #828282);
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--primary-color, #9B59B6);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Main Auth Button */
+.auth-button {
+    width: 100%;
+    padding: 14px 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-light, #fff);
+    /* Gradient based on your purple palette */
+    background: linear-gradient(90deg, var(--accent-color, #E0BBE4) 0%, var(--primary-color, #9B59B6) 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-top: 10px; /* Add some space above */
+    display: block; /* Asegura que ocupe todo el ancho y permita padding/margin */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    text-align: center; /* Centra el texto dentro del "botón" */
+}
+
+.auth-button:hover {
+    opacity: 0.9;
+}
+
+/* Link to switch between Sign Up / Sign In */
+.switch-page-link {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: var(--secondary-color, #828282);
+}
+
+.switch-page-link a {
+    color: var(--primary-color, #9B59B6);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.switch-page-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for auth pages */
+@media (max-width: 500px) {
+    .auth-container {
+        padding: 30px 25px;
+    }
+    .auth-logo {
+        font-size: 2.5rem;
+    }
+    .auth-title {
+        font-size: 1.5rem;
+    }
+    .remember-forgot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
