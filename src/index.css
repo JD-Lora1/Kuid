@@ -1,0 +1,81 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    width: 90%;
+  }
+}
+
+@layer components {
+  /* Cost Bar Styling */
+  .cost-bar-outer {
+    @apply bg-very-light-alt rounded-lg h-[22px] overflow-hidden w-full;
+  }
+
+  .cost-bar-inner {
+    @apply h-full w-0 rounded-l-lg transition-all duration-500 text-right text-white text-xs font-semibold leading-[22px] pr-2;
+    background: linear-gradient(90deg, theme('colors.accent.DEFAULT') 0%, theme('colors.primary.DEFAULT') 100%);
+  }
+  
+  /* Auth Styles */
+  .auth-container {
+    @apply bg-light p-10 rounded-lg shadow-lg text-center max-w-md w-full;
+  }
+  
+  .auth-body {
+    @apply bg-very-light-alt flex justify-center items-center min-h-screen p-5;
+  }
+
+  /* Button and Link Styles */
+  .btn-link {
+    @apply inline-block bg-accent text-dark py-2.5 px-5 rounded font-semibold text-sm transition-colors cursor-pointer inline-flex items-center gap-2 mt-4;
+  }
+
+  .btn-link:hover {
+    @apply bg-accent-hover;
+  }
+
+  .btn-link.primary {
+    @apply bg-primary text-white;
+  }
+
+  .btn-link.primary:hover {
+    @apply bg-primary-hover;
+  }
+
+  .btn-link.whatsapp {
+    @apply bg-whatsapp text-white;
+  }
+
+  .btn-link.whatsapp:hover {
+    @apply bg-whatsapp_hover;
+  }
+}
