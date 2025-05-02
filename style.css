@@ -83,6 +83,54 @@ header a:hover {
     opacity: 0.8;
 }
 
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Empuja los elementos a los extremos */
+    align-items: center;        /* Centra verticalmente los elementos */
+    gap: 20px; /* Espacio entre el branding y el botón */
+}
+
+/* Asegurar que el branding (logo/subtítulo) se alinee a la izquierda */
+.header-branding {
+    text-align: left; /* O center si prefieres el texto centrado */
+    /* Quitamos el text-align: center del header general si lo tenía */
+}
+
+/* Estilos para el botón de Login en el header */
+.header-login-btn {
+    display: inline-block; /* Para que el padding funcione bien */
+    padding: 8px 18px;
+    background-color: var(--light-color); /* Fondo blanco */
+    color: var(--primary-color);     /* Texto púrpura principal */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+}
+
+.header-login-btn:hover {
+    background-color: var(--very-light-alt-bg); /* Fondo lila muy claro al pasar el ratón */
+    color: var(--primary-hover); /* Púrpura más oscuro al pasar el ratón */
+}
+
+/* Opcional: Ajustar el texto del header si estaba centrado globalmente */
+/* Si tenías text-align: center en la regla 'header', quítalo o ajústalo. */
+/* Ejemplo: */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1.2rem 0; /* Se puede ajustar el padding si es necesario */
+    text-align: left; /* Cambiado de center a left */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Si quieres el H1/P centrados aún, puedes usar text-align: center en .header-branding */
+/*
+.header-branding {
+    text-align: center;
+}
+*/
 
 /* --- Section Styles --- */
 section {
@@ -522,6 +570,31 @@ footer {
     #cost-tracker {
         max-width: 90%;
     }
+    .auth-container {
+        padding: 30px 25px;
+    }
+    .auth-logo {
+        font-size: 2.5rem;
+    }
+    .auth-title {
+        font-size: 1.5rem;
+    }
+    .remember-forgot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .header-container {
+        flex-direction: column; /* Apilar en pantallas pequeñas */
+        align-items: center; /* Centrar los elementos apilados */
+        gap: 10px;
+    }
+    .header-branding {
+        text-align: center; /* Centrar el texto en móvil */
+    }
+    header {
+        padding: 1rem 0; /* Menos padding en móvil */
+    }
 }
 
 /* === Authentication Page Styles === */
@@ -728,20 +801,3 @@ body.auth-body {
     text-decoration: underline;
 }
 
-/* Responsive adjustments for auth pages */
-@media (max-width: 500px) {
-    .auth-container {
-        padding: 30px 25px;
-    }
-    .auth-logo {
-        font-size: 2.5rem;
-    }
-    .auth-title {
-        font-size: 1.5rem;
-    }
-    .remember-forgot {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-}
