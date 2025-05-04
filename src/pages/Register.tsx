@@ -9,6 +9,7 @@ import { useToast } from '../hooks/use-toast';
 
 const Register: React.FC = () => {
   const [name, setName] = useState('');
+  const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +21,8 @@ const Register: React.FC = () => {
     setIsLoading(true);
     
     try {
-      await register(name, email, password);
+      await register(name, lastname, email, password);
+      
       toast({
         title: "Registro exitoso",
         description: "Bienvenido a KÜID. Configuremos tu seguro personalizado.",
@@ -67,7 +69,7 @@ const Register: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <div className="mb-5 text-left">
             <label htmlFor="name" className="block mb-2 text-sm font-semibold text-dark">
-              Nombre completo
+              Nombre(s)
             </label>
             <Input 
               type="text" 
@@ -75,7 +77,22 @@ const Register: React.FC = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full px-4 py-3 text-base border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10"
-              placeholder="Tu nombre"
+              placeholder="Tu(s) nombre(s)"
+              required
+            />
+          </div>
+
+          <div className="mb-5 text-left">
+            <label htmlFor="name" className="block mb-2 text-sm font-semibold text-dark">
+              Apellido(s)
+            </label>
+            <Input 
+              type="text" 
+              id="lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+              className="w-full px-4 py-3 text-base border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10"
+              placeholder="Tu(s) apellido(s)"
               required
             />
           </div>

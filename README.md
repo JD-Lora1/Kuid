@@ -1,4 +1,4 @@
-# KÜID: Tu escudo flexible
+# KÜID: Tu escudo flexible - Frontend
 
 ## Integrantes
 
