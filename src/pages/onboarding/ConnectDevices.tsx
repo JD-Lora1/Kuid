@@ -95,12 +95,15 @@ const ConnectDevices: React.FC = () => {
   const handleFinish = () => {
     // Update user status to no longer be a new user
     const savedUser = localStorage.getItem('kuid_user');
+
     if (savedUser) {
       const user = JSON.parse(savedUser);
       user.isNewUser = false;
-      localStorage.setItem('kuid_user', JSON.stringify(user));
-    }
     
+      localStorage.setItem('kuid_user', JSON.stringify(user));
+      window.location.reload();
+    }
+
     navigate('/dashboard');
   };
 

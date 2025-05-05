@@ -33,6 +33,8 @@ export const NewUserGuard: React.FC<AuthGuardProps> = ({ children }) => {
   }
 
   if (user.isNewUser) {
+    console.log("Quisque new user");
+    console.log(user);
     return <Navigate to="/onboarding/configure-insurance" replace />;
   }
 
