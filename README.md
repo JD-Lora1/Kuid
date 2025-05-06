@@ -24,4 +24,18 @@ Con nosotros, **protegerse deja de ser un trámite** y se convierte en una exper
 
 Por el momento, **KÜID** se encuentra en su etapa de validación y evaluación, por lo que está disonible un MVP funcional que busca familiarizar a nuevos usuarios con esta propuesta tan innovadora, y enamorarlos de nuestra visión sin límites.
 
-Este repositorio contiene la Interfaz Gráfica de Usuario del sistema. Se encuentra desarrollada en React.
+Este repositorio contiene la Interfaz Gráfica de Usuario del sistema que se encuentra en desarrollo y está preparada para ilustrar las funcionalidades clave del sistema (algunas funcionales y otras simuladas). Se encuentra desarrollada en React con Vite.
+
+## Demostración 
+
+Si desea explorar la aplicación por su cuenta, puede hacerlo [accediendo a este enlace](https://kuid-juanlora1-icesieducos-projects.vercel.app). Puede crear su propio usuario, o acceder con las siguientes credenciales:
+
+Correo: juanperez@gmail.com
+
+Password: 123456
+
+A continuación encontrará un video de demostración del funcionamiento del sistema: 
+
+[![Watch the video](docs/kuid.png)](https://youtu.be/mbxX0UmdKl0)
+
+**Nota:** Dado el plazo de tiempo limitado para la entrega del proyecto, muchas de las funcionalidades clave están siendo simuladas. Sin embargo, otras fueron implementadas, como lo es el RAG para el chat del usuario y sus preguntas con respecto a la aplicación.
