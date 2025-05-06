@@ -39,6 +39,6 @@ Si desea explorar la aplicación por su cuenta, puede hacerlo [accediendo a este
 
 A continuación encontrará un **VIDEO DE DEMOSTRACIÓN** del funcionamiento del sistema: 
 
-[![Watch the video](docs/kuid.png)](https://youtu.be/mbxX0UmdKl0)
+[![Watch the video](docs/kuid.png)](https://youtu.be/v-2ouk8lM2Q)
 
 **Nota:** Dado el plazo de tiempo limitado para la entrega del proyecto, muchas de las funcionalidades clave están siendo simuladas. Sin embargo, otras fueron implementadas, como lo es el RAG para el chat del usuario y sus preguntas con respecto a la aplicación.
