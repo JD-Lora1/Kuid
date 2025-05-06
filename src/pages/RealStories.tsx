@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import DashboardLayout from '../components/layout/DashboardLayout';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 
@@ -18,72 +16,63 @@ const RealStories: React.FC = () => {
   const stories: Story[] = [
     {
       title: 'Peace of Mind During an Unexpected Trip',
-      quote: 'My flight got cancelled last minute due to weather. KÜID detected my location change from my connected calendar and alerted me about potential travel disruptions covered under my plan. The reimbursement process for the hotel was surprisingly simple!',
+      quote: 'Mi vuelo fue cancelado debido al clima. KÜID detectó el cambio de ubicación desde mi calendario conectado y me alertó sobre posibles interrupciones de viaje cubiertas por mi plan. ¡El proceso de reembolso para el hotel fue sorprendentemente simple!',
       author: 'Sarah K.',
-      tags: ['Income Protection', 'App Integration']
+      tags: ['Protección de Ingresos', 'App Integration']
     },
     {
       title: 'Swift Support for a Furry Friend',
-      quote: 'Our dog suddenly fell ill. KÜID\'s Pet coverage was active, and the claim was processed quickly after the vet visit. Knowing that part of the bill was covered reduced so much stress during a difficult time.',
+      quote: "Nuestro perro se enfermó repentinamente. La cobertura para mascotas de KÜID estaba activa, y la reclamación se procesó rápidamente después de la visita al veterinario. Saber que parte de la factura estaba cubierta redujo mucho el estrés durante un momento difícil.",
       author: 'Mark T.',
-      tags: ['Pet Coverage']
+      tags: ['Mascotas']
     },
     {
       title: 'Proactive Health Alert',
-      quote: 'My smartwatch data, connected via KÜID, showed an unusual heart rate pattern. The platform sent me a notification suggesting I consult a doctor. It turned out to be a minor issue, but the early warning was incredibly reassuring.',
+      quote: "Los datos de mi smartwatch, conectados a través de KÜID, mostraron un patrón inusual de frecuencia cardíaca. La plataforma me envió una notificación sugiriendo que consultara a un médico. Resultó ser un problema menor, pero la advertencia temprana fue increíblemente tranquilizadora.",
       author: 'Elena R.',
-      tags: ['Health Coverage', 'Wearable Integration']
+      tags: ['Salud', 'Wearable Integration']
     }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <DashboardLayout>
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold mb-2">Historias Reales</h1>
+        <p className="text-secondary">Descubre cómo la protección adaptativa de KÜID ha ayudado a los miembros en situaciones de la vida real.</p>
+      </div>
       
-      <main className="flex-1 py-10">
-        <div className="container">
-          <Link to="/" className="text-primary hover:text-primary-hover flex items-center gap-2 mb-6">
-            <ArrowLeft size={16} />
-            <span>Volver al Dashboard</span>
-          </Link>
+      <Card>
+        <CardContent className="pt-6">
+          <div className="flex items-center justify-center mb-6">
+            <div className="bg-primary/10 p-3 rounded-full">
+              <BookOpen className="h-6 w-6 text-primary" />
+            </div>
+          </div>
           
-          <section id="stories-content" className="bg-very-light-alt p-8 rounded-lg shadow-kuid">
-            <div className="text-center mb-8">
-              <div className="bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="text-white w-8 h-8" />
+          <div className="space-y-6">
+            {stories.map((story, index) => (
+              <div 
+                key={index} 
+                className="p-4 border rounded-lg hover:shadow-sm transition-all"
+              >
+                <h3 className="text-lg font-medium text-primary mb-2">{story.title}</h3>
+                <blockquote className="border-l-4 border-primary/30 pl-4 italic text-secondary my-4">
+                  "{story.quote}"
+                </blockquote>
+                <p className="font-medium">- {story.author}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {story.tags.map((tag, idx) => (
+                    <Badge key={idx} className="bg-primary/10 text-primary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
               </div>
-              <h2 className="text-3xl font-semibold text-primary mb-2">Historias Reales, Protección Real</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Descubre cómo la protección adaptativa de KÜID ha ayudado a los miembros en situaciones de la vida real.
-              </p>
-            </div>
-            
-            <div className="space-y-6 mt-10">
-              {stories.map((story, index) => (
-                <Card key={index} className="text-left">
-                  <CardContent className="pt-6">
-                    <h3 className="text-xl font-semibold text-primary mb-2">{story.title}</h3>
-                    <blockquote className="border-l-4 border-accent pl-4 italic text-secondary my-4">
-                      "{story.quote}"
-                    </blockquote>
-                    <p className="font-bold">- {story.author}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {story.tags.map((tag, idx) => (
-                        <Badge key={idx} variant="outline" className="bg-very-light-alt text-secondary">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-        </div>
-      </main>
-      
-      <Footer />
-    </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </DashboardLayout>
   );
 };
 

@@ -9,6 +9,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
 import { Badge } from '../ui/badge';
+import ChatButton from '../chat/ChatButton';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -186,6 +187,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           onClick={() => setSidebarOpen(false)}
         />
       )}
+
+
+      {/* Floating Chat Button */}
+      <ChatButton />
     </div>
   );
 };

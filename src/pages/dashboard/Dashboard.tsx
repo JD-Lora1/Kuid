@@ -20,17 +20,17 @@ const Dashboard: React.FC = () => {
   const coverageStatus = {
     active: true,
     nextPayment: '15 de junio, 2025',
-    monthlyPayment: 110
+    monthlyPayment: (110000).toLocaleString('es-CO'),
   };
   
   const recentActivity = [
-    { date: '01/06/2025', description: 'Pago mensual procesado', amount: '$110.00' },
+    { date: '01/06/2025', description: 'Pago mensual procesado', amount: '$110.000' },
     { date: '25/05/2025', description: 'Conexión con smartwatch', amount: '' },
-    { date: '15/05/2025', description: 'Premio de fidelidad aplicado', amount: '-$5.50' }
+    { date: '15/05/2025', description: 'Premio de fidelidad aplicado', amount: '-$5.500' }
   ];
   
   const objectives = [
-    { name: 'Pasos diarios', progress: 80, target: '10,000 pasos', current: '8,000 pasos' },
+    { name: 'Pasos diarios', progress: 80, target: '10.000 pasos', current: '8.000 pasos' },
     { name: 'Verificaciones médicas', progress: 33, target: '3 por año', current: '1 de 3' }
   ];
 
@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
               </div>
               <div className="bg-gray-50 rounded-lg p-4">
                 <p className="text-sm text-secondary mb-1">Pago mensual:</p>
-                <p className="font-medium">${coverageStatus.monthlyPayment}.00</p>
+                <p className="font-medium">${coverageStatus.monthlyPayment}</p>
               </div>
             </div>
 
@@ -204,7 +204,7 @@ const Dashboard: React.FC = () => {
                 <Trophy className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
                 <div>
                   <p className="text-sm font-medium">¡A punto de desbloquear!</p>
-                  <p className="text-xs text-gray-600">Completa 10,000 pasos diarios por 30 días para ganar $10 de reembolso.</p>
+                  <p className="text-xs text-gray-600">Completa 10.000 pasos diarios por 30 días para ganar $10.000 de reembolso.</p>
                 </div>
               </div>
             </div>

@@ -12,10 +12,11 @@ const Profile: React.FC = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: user?.name || '',
+    lastname: user?.lastname || '',
     email: user?.email || '',
-    phone: '555-123-4567',
-    address: 'Calle Principal 123, Ciudad',
-    birthdate: '1985-07-15'
+    cellphone: user?.cellphone || 'Sin número',
+    address: user?.address || 'Sin dirección',
+    birth_date: user?.birth_date || 'Sin fecha',
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -26,19 +27,50 @@ const Profile: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
+    const response = await fetch(
+      `http://localhost:8000/api/users/email/${user?.email}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      toast({
+        title: "Error",
+        description: "No se pudo actualizar la información. Intenta nuevamente.",
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const updatedUser = {
+      ...user,
+      name: formData.name,
+      lastname: formData.lastname,
+      email: formData.email,
+      cellphone: formData.cellphone,
+      address: formData.address,
+      birth_date: formData.birth_date,
+    };
+
+    localStorage.setItem('kuid_user', JSON.stringify(updatedUser));
+
     setIsSaving(true);
     
-    // Simulate an API call
-    setTimeout(() => {
-      setIsSaving(false);
-      setIsEditing(false);
-      
-      toast({
-        title: "Perfil actualizado",
-        description: "Tu información ha sido actualizada exitosamente.",
-      });
-    }, 1000);
+    setIsSaving(false);
+    setIsEditing(false);
+    
+    toast({
+      title: "Perfil actualizado",
+      description: "Tu información ha sido actualizada exitosamente.",
+    });
   };
 
   return (
@@ -84,11 +116,23 @@ const Profile: React.FC = () => {
           <CardContent>
             <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-1">Nombre completo</label>
+                <label htmlFor="name" className="block text-sm font-medium mb-1">Nombre</label>
                 <Input 
                   id="name"
                   name="name"
                   value={formData.name}
+                  onChange={handleChange}
+                  disabled={!isEditing}
+                  className={!isEditing ? 'bg-gray-50' : ''}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="lastname" className="block text-sm font-medium mb-1">Apellido</label>
+                <Input 
+                  id="lastname"
+                  name="lastname"
+                  value={formData.lastname}
                   onChange={handleChange}
                   disabled={!isEditing}
                   className={!isEditing ? 'bg-gray-50' : ''}
@@ -109,11 +153,11 @@ const Profile: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-1">Teléfono</label>
+                <label htmlFor="cellphone" className="block text-sm font-medium mb-1">Teléfono</label>
                 <Input 
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
+                  id="cellphone"
+                  name="cellphone"
+                  value={formData.cellphone}
                   onChange={handleChange}
                   disabled={!isEditing}
                   className={!isEditing ? 'bg-gray-50' : ''}
@@ -133,12 +177,12 @@ const Profile: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="birthdate" className="block text-sm font-medium mb-1">Fecha de nacimiento</label>
+                <label htmlFor="birth_date" className="block text-sm font-medium mb-1">Fecha de nacimiento</label>
                 <Input 
-                  id="birthdate"
-                  name="birthdate"
+                  id="birth_date"
+                  name="birth_date"
                   type="date"
-                  value={formData.birthdate}
+                  value={formData.birth_date}
                   onChange={handleChange}
                   disabled={!isEditing}
                   className={!isEditing ? 'bg-gray-50' : ''}

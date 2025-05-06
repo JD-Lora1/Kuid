@@ -8,6 +8,9 @@ interface User {
   name: string;
   lastname: string;
   email: string;
+  cellphone?: string;
+  address?: string;
+  birth_date?: string;
   isNewUser: boolean;
 }
 
@@ -23,9 +26,11 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
+
   if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
+
   return context;
 };
 
@@ -68,13 +73,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       
       const data = await response.json();
 
-      console.log(data);
-
       const loggedUser = {
         id: data.id,
         name: data.name,
         lastname: data.lastname,
         email: data.email,
+        cellphone: data.cellphone || 'Sin número',
+        address: data.address || 'Dirección no asociada',
+        birth_date: data.birth_date || 'Sin fecha',
         isNewUser: false,
       };
 
@@ -122,6 +128,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         name: data.name,
         lastname: data.lastname,
         email: data.email,
+        cellphone: 'Sin número',
+        address: 'Dirección no asociada',
+        birth_date: 'Sin fecha',
         isNewUser: true,
       };
       
