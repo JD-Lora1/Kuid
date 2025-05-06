@@ -37,7 +37,7 @@ Si desea explorar la aplicación por su cuenta, puede hacerlo [accediendo a este
 - **Correo:** juanperez@gmail.com
 - **Password:** 123456
 
-A continuación encontrará un video de demostración del funcionamiento del sistema: 
+A continuación encontrará un **VIDEO DE DEMOSTRACIÓN** del funcionamiento del sistema: 
 
 [![Watch the video](docs/kuid.png)](https://youtu.be/mbxX0UmdKl0)
 
