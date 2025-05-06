@@ -30,9 +30,8 @@ Este repositorio contiene la Interfaz Gráfica de Usuario del sistema que se enc
 
 Si desea explorar la aplicación por su cuenta, puede hacerlo [accediendo a este enlace](https://kuid-juanlora1-icesieducos-projects.vercel.app). Puede crear su propio usuario, o acceder con las siguientes credenciales:
 
-Correo: juanperez@gmail.com
-
-Password: 123456
+- **Correo:** juanperez@gmail.com
+- **Password:** 123456
 
 A continuación encontrará un video de demostración del funcionamiento del sistema: 
 
