@@ -1,5 +1,9 @@
 # [KÜID: Tu escudo flexible - Frontend](https://kuid-juanlora1-icesieducos-projects.vercel.app)
 
+**Prototipo interactivo:** https://kuid-juanlora1-icesieducos-projects.vercel.app
+
+---
+
 ## Integrantes
 
 - Juan Diego Lora Lara
