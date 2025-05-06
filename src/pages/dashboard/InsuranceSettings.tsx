@@ -12,13 +12,20 @@ interface InsuranceModule {
   title: string;
   description: string;
   icon: React.ReactNode;
-  cost: number;
+  cost: string;
 }
 
 const InsuranceSettings: React.FC = () => {
   // Get the selected modules from local storage
   const savedModules = localStorage.getItem('kuid_selected_modules');
   const initialSelectedModules = savedModules ? JSON.parse(savedModules) : ["health", "income"];
+
+  const [chatbotMessages, setChatbotMessages] = useState([
+    {
+      role: 'system',
+      content: 'Eres un asistente virtual de una aplicación llamada KÜID. Estás preparado para responder preguntas acerca de la cobertura de un plan de seguros ante situaciones que el cliente plantee. Debes ser muy cordial.',
+    },
+  ]);
   
   const [selectedModules, setSelectedModules] = useState<string[]>(initialSelectedModules);
   const [question, setQuestion] = useState('');
@@ -33,41 +40,41 @@ const InsuranceSettings: React.FC = () => {
       title: "Salud",
       description: "Cobertura para tu bienestar físico y mental.",
       icon: <Heart className="text-health" size={42} />,
-      cost: 50,
+      cost: (50000).toLocaleString('es-CO'),
     },
     {
       id: "income",
       title: "Protección de Ingresos",
       description: "Protege tus ganancias en caso de imposibilidad para trabajar.",
       icon: <DollarSign className="text-income" size={42} />,
-      cost: 40,
+      cost: (40000).toLocaleString('es-CO'),
     },
     {
       id: "children",
       title: "Familia",
       description: "Asegura el futuro de tus hijos.",
       icon: <Baby className="text-children" size={42} />,
-      cost: 30,
+      cost: (30000).toLocaleString('es-CO'),
     },
     {
       id: "pets",
       title: "Mascotas",
       description: "Cuidado para tus amigos peludos.",
       icon: <Cat className="text-pets" size={42} />,
-      cost: 20,
+      cost: (20000).toLocaleString('es-CO'),
     },
     {
       id: "travel",
       title: "Viajes",
       description: "Cobertura para imprevistos durante tus viajes.",
       icon: <Plane className="text-blue-500" size={42} />,
-      cost: 15,
+      cost: (15000).toLocaleString('es-CO'),
     }
   ];
 
   const totalCost = modules
     .filter(module => selectedModules.includes(module.id))
-    .reduce((sum, module) => sum + module.cost, 0);
+    .reduce((sum, module) => sum + parseInt(module.cost.replace(/\./g, ""), 10), 0);
 
   const handleToggleModule = (moduleId: string) => {
     setSelectedModules(prev => 
@@ -77,7 +84,7 @@ const InsuranceSettings: React.FC = () => {
     );
   };
 
-  const handleAskQuestion = () => {
+  const handleAskQuestion = async () => {
     if (!question.trim()) {
       toast({
         title: "Pregunta vacía",
@@ -89,7 +96,19 @@ const InsuranceSettings: React.FC = () => {
 
     setIsAskingQuestion(true);
     
-    // Simulate AI response
+    const response = await fetch(
+      `https://kuid-back-production.up.railway.app/api/chat/ask`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: question,
+          messages: chatbotMessages,
+        }),
+      }
+    );
+
     setTimeout(() => {
       setIsAskingQuestion(false);
       let response = "";
@@ -164,10 +183,10 @@ const InsuranceSettings: React.FC = () => {
             <div className="bg-gray-50 p-4 rounded-lg mb-6">
               <div className="flex justify-between mb-2">
                 <span className="font-medium">Costo mensual total:</span>
-                <span className="font-bold text-primary">${totalCost}</span>
+                <span className="font-bold text-primary">${totalCost.toLocaleString('es-CO')}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div className="bg-primary h-2.5 rounded-full" style={{ width: `${Math.min((totalCost / 150) * 100, 100)}%` }}></div>
+                <div className="bg-primary h-2.5 rounded-full" style={{ width: `${Math.min((totalCost / 150000) * 100, 100)}%` }}></div>
               </div>
             </div>
 

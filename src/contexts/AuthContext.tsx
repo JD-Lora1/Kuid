@@ -53,7 +53,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:8000/api/auth/login`, {
+      
+      
+      const response = await fetch(`https://kuid-back-production.up.railway.app/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +103,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const register = async (name: string, lastname: string, email: string, password: string) => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/api/users', {
+      const response = await fetch(`https://kuid-back-production.up.railway.app/api/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

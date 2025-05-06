@@ -12,7 +12,7 @@ interface InsuranceModule {
   title: string;
   description: string;
   icon: React.ReactNode;
-  cost: number;
+  cost: string;
   recommended: boolean;
 }
 
@@ -30,7 +30,7 @@ const SelectModules: React.FC = () => {
       title: "Salud",
       description: "Cobertura para tu bienestar físico y mental.",
       icon: <Heart className="text-health" size={42} />,
-      cost: 50,
+      cost: (80000).toLocaleString('es-CO'),
       recommended: true
     },
     {
@@ -38,7 +38,7 @@ const SelectModules: React.FC = () => {
       title: "Protección de Ingresos",
       description: "Protege tus ganancias en caso de imposibilidad para trabajar.",
       icon: <DollarSign className="text-income" size={42} />,
-      cost: 40,
+      cost: (120000).toLocaleString('es-CO'),
       recommended: true
     },
     {
@@ -46,7 +46,7 @@ const SelectModules: React.FC = () => {
       title: "Familia",
       description: "Asegura el futuro de tus hijos.",
       icon: <Baby className="text-children" size={42} />,
-      cost: 30,
+      cost: (300000).toLocaleString('es-CO'),
       recommended: false
     },
     {
@@ -54,7 +54,7 @@ const SelectModules: React.FC = () => {
       title: "Mascotas",
       description: "Cuidado para tus amigos peludos.",
       icon: <Cat className="text-pets" size={42} />,
-      cost: 20,
+      cost: (50000).toLocaleString('es-CO'),
       recommended: true
     },
     {
@@ -62,14 +62,16 @@ const SelectModules: React.FC = () => {
       title: "Viajes",
       description: "Cobertura para imprevistos durante tus viajes.",
       icon: <Plane className="text-blue-500" size={42} />,
-      cost: 15,
+      cost: (200000).toLocaleString('es-CO'),
       recommended: false
     }
   ];
 
   const totalCost = modules
     .filter(module => selectedModules.includes(module.id))
-    .reduce((sum, module) => sum + module.cost, 0);
+    .reduce((sum, module) => sum + parseInt(module.cost.replace(/\./g, ""), 10), 0);
+
+  const fullCost = modules.reduce((sum, module) => sum + parseInt(module.cost.replace(/\./g, ""), 10), 0);
 
   const handleToggleModule = (moduleId: string) => {
     setSelectedModules(prev => 
@@ -177,7 +179,7 @@ const SelectModules: React.FC = () => {
         <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Costo mensual total: ${totalCost}</h2>
           <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-            <div className="bg-primary h-2.5 rounded-full" style={{ width: `${Math.min((totalCost / 150) * 100, 100)}%` }}></div>
+            <div className="bg-primary h-2.5 rounded-full" style={{ width: `${Math.min((totalCost / fullCost) * 100, 100)}%` }}></div>
           </div>
         </div>
 

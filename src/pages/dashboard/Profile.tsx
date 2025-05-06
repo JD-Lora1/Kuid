@@ -29,7 +29,7 @@ const Profile: React.FC = () => {
 
   const handleSave = async () => {
     const response = await fetch(
-      `http://localhost:8000/api/users/email/${user?.email}`,
+      `https://kuid-back-production.up.railway.app/api/users/email/${user?.email}`,
       {
         method: 'PUT',
         headers: {

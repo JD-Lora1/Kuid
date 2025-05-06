@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   User, Settings, Bell, Trophy, ShieldCheck, Link as LinkIcon, 
-  Calendar, BookOpen, LogOut, Menu, X, Home, AlertCircle
+  Calendar, BookOpen, LogOut, Menu, X, Home, AlertCircle, Users
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Button } from '../ui/button';
@@ -100,6 +100,14 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               >
                 <ShieldCheck className="h-5 w-5" />
                 <span>Configuración de Seguro</span>
+                </Link>
+              
+              <Link 
+                to="/group-benefits" 
+                className="flex items-center space-x-3 px-3 py-2 text-gray-700 rounded-md hover:bg-primary/5 hover:text-primary"
+              >
+                <Users className="h-5 w-5" />
+                <span>Seguro Compartido</span>
               </Link>
 
               <Separator className="my-3" />

@@ -29,6 +29,7 @@ import Rewards from "./pages/Rewards";
 import ConfigureInsurance from "./pages/onboarding/ConfigureInsurance";
 import SelectModules from "./pages/onboarding/SelectModules";
 import ConnectDevices from "./pages/onboarding/ConnectDevices";
+import GroupBenefits from "./pages/GroupBenefits";
 
 const queryClient = new QueryClient();
 
@@ -86,6 +87,11 @@ const App: React.FC = () => {
                 <Route path="/insurance-settings" element={
                   <AuthGuard>
                     <InsuranceSettings />
+                  </AuthGuard>
+                } />
+                <Route path="/group-benefits" element={
+                  <AuthGuard>
+                    <GroupBenefits />
                   </AuthGuard>
                 } />
                 <Route path="/rewards" element={

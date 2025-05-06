@@ -58,7 +58,9 @@ const ChatButton: React.FC = () => {
     setMessages(prev => [...prev, newUserMessage]);
     setMessage('');
     
-    const response = await fetch(`http://localhost:8000/api/chat/ask-rag`, {
+    
+
+    const response = await fetch(`https://kuid-back-production.up.railway.app/api/chat/ask-rag`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,7 +94,7 @@ const ChatButton: React.FC = () => {
     // WhatsApp business number - replace with your actual number
     const phoneNumber = "3127489843";
     const message = "Hola, necesito ayuda con mi cuenta KÜID.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
     window.open(whatsappUrl, '_blank');
   };
 
